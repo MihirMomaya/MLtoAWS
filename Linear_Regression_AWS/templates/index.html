@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+<!-- This is extending bse.html Page   -->
+
+{% block head %}
+
+
+<title> Search Page </title>
+<!-- Below Mentioned 2 lines are link to css and js file in static folder  -->
+<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+<script type=text/javascript src="{{url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2 style="text-align: center">Predict Your chances for Admission</h2>
+
+    <div class="form">
+        <table>
+            <tr>
+                <th><b>Subject </b></th>
+                <th><b>Range</b></th>
+                <th><b>Marks</b></th>
+
+            </tr>
+            <form name="myForm" action="/predict" onsubmit="return validateForm()" method="POST">
+                <tr><td>GRE Score</td>
+                    <td>130-340</td>
+                    <td><center><input type="number" name="gre_score" id="gre_score"></center></td>
+                </tr>
+                <tr><td>TOEFL Score</td>
+                    <td>0-120</td>
+                    <td><center> <input type="number" name="toefl_score" id="toefl_score"></center></td>
+                </tr>
+                <tr><td>University rating</td>
+                    <td>0-5</td>
+                    <td><center>  <input type="number" name="university_rating" id="university_rating" step="any"></center></td>
+                </tr>
+                <tr><td>SOP Score</td>
+                    <td>0-5</td>
+                    <td><center>   <input type="number" name="sop" id="sop" step="any"></center></td>
+                </tr>
+                <tr><td>LOR Score</td>
+                    <td>0-5</td>
+                    <td><center> <input type="number" name="lor" id="lor" step="any"></center></td>
+                </tr>
+                <tr><td>CGPA</td>
+                    <td>0-10</td>
+                    <td><center>  <input type="number" name="cgpa" id="cgpa" step="any"></center></td>
+                </tr>
+                <tr><td>Research</td>
+                    <td><select name="research"id="research">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        </select></td>
+                    <td><center> <input type="submit" value="Predict"></center></td>
+                </tr>
+            </form>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
